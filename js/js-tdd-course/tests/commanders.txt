@@ -1,0 +1,17 @@
+Alguns comandos para auxiliar
+
+--"reporters" lista todos os tipos de reporters
+--"reporter=spec" retorna o teste formatado com o tipo do reporter escolhido
+
+--bail para e execução dos testes no primeiro erro que ocorrer
+
+
+Metódos
+only = irá rodar aquele unico IT setado com only
+skip = irá desviar de todo IT marcado com skip
+
+Hookers
+before = roda uma vez antes do bloco
+after = toda uma vez depois do bloco
+beforeEach = roda todas as vezes antes de cada bloco
+afterEach = roda todas as vezes depois de cada bloco

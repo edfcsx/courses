@@ -1,0 +1,16 @@
+[
+  {
+    "departureAirport": "REC",
+    "arrivalAirport": "JAB",
+    "aircraft": "Airbus A380",
+    "distance": 18000,
+    "intercontinental": false
+  },
+  {
+    "departureAirport": "REC",
+    "arrivalAirport": "JAB",
+    "aircraft": "Manga AirBus WH",
+    "distance": 18000,
+    "intercontinental": false
+  }
+]

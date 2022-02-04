@@ -1,0 +1,64 @@
+<!--
+  Observações aula;
+  Menu responsivo
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Section 3 - aula 25 Menu Responsivo</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <style>
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu__item {
+      flex: 1 1 200px;
+      margin: 5px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .menu__link {
+      display: block;
+      text-decoration: none;
+      color: #fff;
+      padding: 20px;
+    }
+
+    @media(min-width: 53.125em){
+      .menu__item{
+        flex-basis: 100px;
+      }
+    }
+  </style>
+  <body>
+    <nav>
+      <ul class="menu container">
+        <li class="menu__item"><a href="#" class="menu__link">Inicio</a></li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">Quem Somos</a>
+        </li>
+        <li class="menu__item"><a href="#" class="menu__link">Trabalhos</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Contato</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Inicio</a></li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">Quem Somos</a>
+        </li>
+        <li class="menu__item"><a href="#" class="menu__link">Trabalhos</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Contato</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

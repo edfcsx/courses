@@ -1,0 +1,63 @@
+<!--
+
+    Observações aula;
+
+    1 - Flex wrap
+        Define se os itens devem quebrar ou não a linha.
+        Por padrão eles não quebram linha, isso faz com que os flex itens sejam compactados além do limite do conteúdo.
+
+        Essa é geralmente uma propriedade que é quase sempre definida como flex-wrap:
+        wrap; Pois assim quando um dos flex itens atinge o limite do conteúdo,
+        o último item passa para a coluna debaixo e assim por diante.
+
+        O flex wrap tem como valor default o nowraper que tem como base nunca quebrar a linha
+
+    Obs : quando os itens extrapolam o container acontece um overflow
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Section 2 - aula 9</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    .container{
+        display: flex;
+        flex-direction: row;
+        border : 1px solid white;
+        width: 500px;
+        flex-wrap: wrap;
+    }
+
+</style>
+<body>
+        
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+    </div>
+</body>
+</html>

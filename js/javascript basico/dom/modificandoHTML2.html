@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <p>Texto Inicial</p>
+    </div>
+    <script>
+        // ...
+        const div = document.querySelector('div')
+
+        //O inner html ira substituir todo o conteudo interno e aplicando o novo conteudo
+        div.innerHTML = 'texto alterado'
+
+        //O outerhtml ira substituir o elemento é seu conteudo
+        //div.outerHTML = 'texto alterado'
+        
+        //ele ira inserir um html na posição desejada
+        //ex : beforeBegin = antes do inicio
+        // afterbegin = após que começou o documento, ele irá inserir dentro da div
+        // befreend = antes do fim
+        // afterend = apos o fim da tag adicione um elemento
+        div.insertAdjacentHTML('beforeBegin', '<p>Antes do inicio</p>')
+        div.insertAdjacentHTML('afterBegin', '<br><p>primeiro elemento</p>')
+        div.insertAdjacentHTML('beforeend', '<br><p>Antes do fim</p>')
+        div.insertAdjacentHTML('afterend', '<p>depois da tag</p>')
+
+        //somente texto sem tags
+        console.log(div.innerHTML) //tras texto é tags
+        console.log(div.innerText) //tras todo o texto sem tags
+
+
+    </script>
+</body>
+
+</html>

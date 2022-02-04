@@ -1,0 +1,49 @@
+<!--
+
+    Observações aula;
+
+    1 - Align-content 
+        propriedade parecida com o justify content porem ela só ira fazer sentido se o container possuir mais de uma linha, seu proposito
+        e definir o alinhamento de flex-items em diferentes linhas e como o espaço e distribuido no cross axis
+
+        seus vqalores são : flex-start, flex-end, center, space-around,space-between
+       
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Section 2 - aula 13</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    .container{
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+        height: 300px;
+        border : 5px solid #fff;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+</style>
+<body>
+        
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+    </div>
+</body>
+</html>

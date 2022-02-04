@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cartão Visita</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head> 
+<style>
+    .container{
+        display: flex;
+        border: solid 1px #fff;
+        flex-direction: row;
+        width: 30vw;
+        height: 200px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .foto{
+        align-self: stretch;
+        margin: 10px;
+        flex: 1 1 100px;
+    }
+
+    .info{
+        display: flex;
+        border: 1px solid black;
+    }
+
+    .info__item{
+        margin: 10px;
+        border: solid 1px black;
+        flex: 1;
+        flex-direction: column;
+    }
+
+
+</style>
+<body>
+        
+    <div class="container">
+        <div class="foto">FOTO</div>
+        <div class='info'>
+            <div class="info__item">NOME</div>
+            <div class="info__item">FUNCAO</div>
+            <div class="info__item">DATA</div>
+        </div>
+    </div>
+</body>
+</html>

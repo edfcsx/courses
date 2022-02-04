@@ -1,0 +1,7 @@
+Algumas bibliotecas legais para se trabalhar
+
+1 - Lodash , contém varios metodos para simplificar os scripts
+2 - nodemon, a mesma vai executar teu projeto automaticamente mesmo tendo modificações no codigo
+3 - express , uma boa ferramenta para back-end
+4 - axios, serve para obter requisições do protocolo http
+5 - schedule , um temporizador que ira funcionar igual a crownjobs

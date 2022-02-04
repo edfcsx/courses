@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <title>Row e Columns</title>
+</head>
+
+<style>
+    .box{
+        display: flex;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .column{
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 100px;
+    }
+
+
+</style>
+
+<body>
+    <div class="box">
+        
+        <div class="row container">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+        </div>
+        <div class='column container'>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+        </div>
+    </div>
+</body>
+</html>

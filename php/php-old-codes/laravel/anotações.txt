@@ -1,0 +1,290 @@
+
+Anotações para acompanhamento do curso de laravel
+
+| Dando starter no servidor
+| php artisan serve
+
+|Ao instalar o laravel se faz necessario a migração das migrations que acompanham o sistema
+|no mysql versão > 5.7 se faz necessário a correção de um bug. para corrigir se faz necessário aplicar uma linha em:
+|projeto/app/providers/AppServiceProvider.php
+|1 - use Illuminate\Support\Facades\Schema;
+|E na função boot aplicar o comando.
+|Schema::defaultStringLength(191);
+|Assim já será possivel a instalação das migrations.
+***************************************************************************************************************************
+|Criando Migrations no laravel
+|criando a migrate principal ao instalar o laravel ou criar novo projeto
+|php artisan migrate:install
+
+|php artisan make:migration nome_da_migration
+|Por convenção se for uma migration de criação o nome precisa ser definido pelo prefixo create_table
+|-create_table -alter_table -drop_table
+|ex: php artisan make:migration create_table_products
+
+|É possilvel criar também o migrate escrevendo um codigo basico para a criação da tabela no banco
+|ex:
+|php artisan make:migration create_table_restaurantes --create=restaurantes
+|assim ele ja ira criar um arquivo com um esquema básico de up e drop da tabela
+
+|Criando chave estrangeira 
+|php artisan make:migratin alter_table_menu_add_foreign_restaurant
+
+|Dica:
+|ao criar tabela pode ser usado o comando $table->timestamps(); ele ira criar na table o campo created_at, update_at
+|O metodo blueprint descreve a criação ou update no processo de migração das tabelas no laravel.
+
+|Rollback de migrations
+|comando: php artisan migrate:rollback
+|ele ira fazer um rollback do ultimo lote executado é possivel visualizar os lotes na tabela migrations
+|comandos:
+|php artisan migrate:rollback --step=2 números de passos que você deseja executar o reset
+|php artisan migrate:rollback:reset irá dropar todas as tabelas
+***************************************************************************************************************************
+|Seeders
+|É utilizado para popular o banco de dados, auxiliando no desenvolvimento
+|Comando:
+|php artisan make:seeder nome_do_seeder
+|ex: php artisan make:seeder ProductsTableSeeder
+|obs: A cada seeder criado é necessario que ele seja chamado no DatabaseSeeder
+|Comando executando seeder
+|php artisan db:seed
+
+|Executando migrate e seed juntos
+|php artisan migrate --seed
+
+|Factorys
+|São usadas para popular o banco com dados padroes
+
+|Seedes
+|São usadas para popular o banco com dados fakes, caso precise de mais informações olhar a fundo a biblioteca faker
+
+***************************************************************************************************************************
+|Consulta Sql fora do modal 
+|Algumas querys fora do models
+|$sql = "SELECT * FROM users WHERE id=?";
+|$users = \DB::select($sql, [12]);
+|dd($users);
+    
+|outra forma de fazer
+|$users = \DB::table('users')->get();
+|dd($users);
+
+|outra forma de fazer
+|$users = \DB::table('users') ->where('id','=',13) ->get();
+|dd($users);
+ 
+|outra forma de fazer retornando os dados fora de um array
+|$users = \DB::table('users') ->where('id','=',13) ->first();
+|dd($users);
+ 
+|outra forma de fazer retornando os dados fora de um array especificando as informacoes
+|$users = \DB::table('users') ->where('id','=',13) ->select('id','name') ->first();
+|dd($users);
+ 
+|pegando o sql
+|$users = \DB::table('users') ->where('id','=',13) ->select('id','name') ->toSql();
+|dd($users);
+
+|fazendo a mesma coisa porem usando a vista do modal
+|em nenhum momento foi informado a tabela, pois o laravel por convencao ira por o nome da classe no plural e ira tentar
+|encontrar a tabela. Ex class User , ele ira procurar na tabela users
+| $users = \App\User::all();
+|dd($users);
+|ou com o where
+|$users = \App\User::where('id',4)->select('id', 'name')->get();
+|dd($users);
+***************************************************************************************************************************
+
+|salvando informações no banco
+|$user = new App\User();
+|$user->name = "Valdisneison da Silva";
+|$user->email = "valdisneison@gmail.com";
+|$user->password = bcrypt("54714299");
+|$user->save();
+
+|alterando as informacoes no banco
+|$user = \App\User::find(id);
+|$user->name = "Valdisneison da Silva Editado";
+|$user->email = "valdisneison@gmail.com";
+|$user->password = bcrypt("54714299");
+|$user->save();
+
+***************************************************************************************************************************
+|Utilizando mass assignment
+|com o mass assignment podemos fazer operações no banco mais rapidamente
+
+|Salvando dados no banco
+|ex:
+|$userData = [
+|'name' => 'usuario novo',
+|'email' => 'usuarionovo@hotmail.com',
+|'password' => bcrypt('54714299')
+|];
+|$user = new \App\User();
+|$user->create($userData);
+
+|Alterando dados no banco
+|$userData = [
+|'name' => 'usuario novo Editado',
+|'email' => 'usuarionovo@hotmail.com',
+|'password' => bcrypt('54714299')
+|];
+|$user = \App\User::find(33);
+|$user->update($userData);
+***************************************************************************************************************************
+
+|Deletando dados no banco
+|$user = \App\User::find(33);
+|$user->delete();
+
+|Deletando dados em massa
+|$user = \App\User::whereIn('id',[25, 26, 27, 28, 29, 30, 31, 32]);
+|$user->delete();
+
+***************************************************************************************************************************
+|Controlers
+|comandos:
+|php artisan make:controller UserController cria um controller com o nome definido
+|php artisan make:controller UserController --resource cria o controller como recurso
+|Comando para chamar controller resource na rota
+|Route::resource('', '');
+***************************************************************************************************************************
+|Rotas
+
+|rota passando variavel
+|Route::get('view/{name}', function ($name){
+|    return view('helloWorld', compact('name'));
+|});
+
+|rota comum
+|Route::get('/', function () {
+|return view('welcome');
+|});
+
+|rota com controller
+|Route::get('/users', 'UserController@index'); nome_do_controller@metodo
+
+|Prefixo de Rotas
+|O prefixo nos possibilita definir um grupo para varias rotas facilitando o trabalho
+|    Route::prefix('products')->group(function (){
+|       Route::get('/', function (){
+|          return "produtos index";
+|       });
+|       Route::get('/1', function (){
+|           return "produtos 1";
+|       });
+|    });
+
+|Se Faz possivel inserir apelidos em rotas para que possamos chama-las atraves do seu apelido
+|ex:
+|    Route::prefix('products')->group(function (){
+|       Route::get('/', function (){
+|          return "produtos index";
+|       })->name('products_index');
+|       Route::get('/1', function (){
+|           return "produtos 1";
+|       })->name('products_single');
+|    });
+
+|Também é possivel criar apelidos em grupos de rotas
+|Route::prefix('products')->name('products_')->group(function (){
+|   Route::get('/', function (){
+|      return "produtos index";
+|   })->name('index');
+|   Route::get('/1', function (){
+|       return "produtos 1";
+|   })->name('single');
+|});
+
+|Utilizando namespace para acessar controllers facilmente em outras pastas
+|Route::namespace('Test')->group(function (){
+|Route::resource('/test', 'TestController');
+|});
+
+|chamando uma view diretamente pela rota
+|Route::view('/view', 'helloWorld', ['name' => 'Felipe']);
+
+|rota que pode ser chamada sem parametro porem com parametro padrao definido
+|Route::get('/semParametro/{name?}', function ($name = 'Felipe'){
+|return $name;
+|});
+
+|Grupo de rotas com middleware
+|Route::group(['middleware' => 'test'], function (){
+|    Route::get('middle', function (){
+|        return 'middle';
+|    });
+|    Route::get('middle/2', function (){
+|        return 'middle 2';
+|    });
+|});
+***************************************************************************************************************************
+|Middleware
+|Os middlewares são aplicações que estão entre o cliente e o servidor
+|Rota básica de uma aplicação
+|Client -> Http -> -> Middleware -> Servidor -> response -> Middleware -> next -> Middleware -> Application
+
+|Criando Middleware
+|php artisan make:middleware nome_do_middleware
+
+|Todo middleware deve ser registrado no app/kernel para que possa ser chamado
+
+|Chamando um middleware
+|Route::view('/middleware', 'helloWorld', ['name' => 'Felipe'])->middleware('test');
+
+|chamando diversos middleware
+|Route::view('/middleware', 'helloWorld', ['name' => 'Felipe'])->middleware('test','auth');
+
+|Tamém pode ser chamado um grupo de middlewares , o proprio laravel se encarregara de chamar todos os middlewares do grupo
+|Route::view('/middleware', 'helloWorld', ['name' => 'Felipe'])->middleware('nome_do_grupo');
+***************************************************************************************************************************
+|Token
+|o csrf token ele serve para confirmar a identidade 
+|caso o laravel não permita o envio de algum formulario dando erro de inatividade ou algo parecido basta incluir a linha
+|{{csrf_field()}}
+***************************************************************************************************************************
+|Model
+|o model é responsavel por manipular o banco de dados
+|comando para gerar model
+|php artisan make:model nome do model
+
+|O model sempre ira procurar uma tabela no plural
+|Ex:
+|model User ele irar procurar pela tabela users
+|caso sejá necessario utilizar outra tabela basta apenas escrever
+|/**
+| * The table associated with the model.
+| *
+| * @var string
+| */
+|protected $table;
+***************************************************************************************************************************
+|Request
+|Serve para colocarmos regras como se o campo é requerido ou se tamanho minimo , maximo
+|comando:
+|php artisan make:request nome da request
+***************************************************************************************************************************
+|formulario
+|Dicas:
+
+|em um formulario de inserção de dados podemos utilizar o help value="{{old('nome_input_do_form')}}"
+|para recuperar algum dado que foi digitado no form mas que o form não pode ser validade.
+
+|caso não deseje a validação do HTML5 nos formularios basta chamar no form o novalidate()
+|e para usar a validação do laravel dando um estilo especial ao input caso esteja incorreto basta apenas 
+|adicionar na classe do input o comando:
+|@if($errors->has('nome do input') is invalid @endif
+***************************************************************************************************************************
+|Chave estrangeira
+
+|A convenção do laravel para a chave estrangeira é 
+|<nome_da_tabela>_<nome_da_coluna_referencia>_<a_palavra_foreign>
+|ao usar o dropforeign você tem que chamar a ligação, caso contrario ira dar erro em um rollback
+|a chave estrangeira referencia aos menus seria 
+|menus_restaurant_id_foreign
+
+|comandos para criar chave estrangeira
+|Schema::table('menus', function (Blueprint $table){
+|           $table->integer('restaurant_id')->unsigned();
+|            $table->foreign('restaurant_id')->references('id')->on('restaurants'); 
+|        });

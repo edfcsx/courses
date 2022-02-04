@@ -1,0 +1,27 @@
+[
+  {
+    "firstName": "Eneias",
+    "lastName": "Silva",
+    "age": 41,
+    "history": [
+      { "disease": "cold", "tratament": "install a fire pit in a patient header" },
+      { "disease": "fever", "tratament": "take the patient inside a freezer" }
+    ]
+  },
+  {
+    "firstName": "Jonas",
+    "lastName": "Silva",
+    "age": 24,
+    "history": [
+      { "disease": "gay", "tratament": "pay 3 hours for prostitutes aply cure-gay in the patient" }
+    ]
+  },
+  {
+    "firstName": "Joca",
+    "lastName": "Silva",
+    "age": 41,
+    "history": [
+      { "disease": "cancer", "tratament": "no have tratament" }
+    ]
+  }
+]

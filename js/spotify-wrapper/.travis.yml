@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "10"
+
+install:
+  - npm install -g @babel/cli
+  - npm install -g @babel/core
+  - npm install -g @babel/preset-env
+  - npm install -g babel-loader
+
+before_script:
+  - npm install --ignore-scripts
+  - npm run build:all
+after_sucess:
+  - npm run coveralls
+

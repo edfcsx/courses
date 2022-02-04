@@ -1,0 +1,9 @@
+package fundamentals;
+
+public class Concat {
+
+	public static void main(String[] args) {
+		System.out.println("A forma mais comum de concatenação usando" + " o operador +");
+	}
+
+}

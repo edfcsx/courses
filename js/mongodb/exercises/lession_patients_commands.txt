@@ -1,0 +1,40 @@
+use flights
+
+db.patients.insertMany(
+  [
+    {
+      "firstName": "Eneias",
+      "lastName": "Silva",
+      "age": 41,
+      "history": [
+        { "disease": "cold", "tratament": "install a fire pit in a patient header" },
+        { "disease": "fever", "tratament": "take the patient inside a freezer" }
+      ]
+    },
+    {
+      "firstName": "Jonas",
+      "lastName": "Silva",
+      "age": 24,
+      "history": [
+        { "disease": "fever", "tratament": "two cups of water" }
+      ]
+    },
+    {
+      "firstName": "Joca",
+      "lastName": "Silva",
+      "age": 41,
+      "history": [
+        { "disease": "cancer", "tratament": "no have tratament" }
+      ]
+    }
+  ]
+)
+
+db.patients.updateOne(
+  { _id: ObjectId("5dfcb04678c596cd85660a93"), "history.disease": "fever" },
+  { $set: { firstName: "Pedro", age: 25, "history.$": { disease: "yellow fever", tratament: "transfussion blood" } } }
+)
+
+db.patients.find({ age: { $gt: 30 }}).pretty()
+
+db.patients.deleteMany({ "history.disease": "cold" })

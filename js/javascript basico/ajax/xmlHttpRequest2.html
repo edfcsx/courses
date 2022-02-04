@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        input[type=file] {
+            display: flex;
+            margin: 10px;
+            padding: 40px;
+            font-size: 40px;
+            background: crimson;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <input type="file" name="arquivo" /><!--Se faz importante o input ter o mesmo nome informado no multer-->
+    <div class="progresso"></div>
+
+    <script>
+        //function do upload
+        function ajaxUpload(config){
+            const xhr = new XMLHttpRequest()
+            
+            //caso o xhr.upload esteja presente no objeto 
+            if(xhr.upload){ 
+                xhr.upload.onprogress = e => { //forma para monitorar o progresso do upload
+                    const atual = e.loaded //pegando o valor processado
+                    const total = e.total //pegando o valor total
+                    //Math floor retorna um inteiro 
+                    const percentual = Math.floor(atual / total * 100)
+                    //função callback passando os valores
+                    config.progresso({atual,total,percentual})
+                }
+            }
+            /*xhr.open inicia uma nova requisição
+                *Os parametros são:
+                1 - tipo da requisição : GET....POST....
+                2 - Url
+                3 - assincrono ? 
+            */
+            xhr.open(config.metodo, config.url, true)
+
+            //envia a requisição para o servidor
+            xhr.send(config.formData)
+        }
+
+        //Ao mudar o valor de qualquer input marcado com o tipo file dispara a função
+        document.querySelector('input[type=file]').onchange = e => {
+            //criando um objeto formdata 
+            //Essa interface utiliza o mesmo formato que um form utilizaria se
+            //o tipo de codificação estivesse configurado como "multipart/form-data"
+            const formData = new FormData()
+            //adicionando o objeto dentro do formdata, funciona como um conjuto de chaves e valor
+            formData.append(e.target.name, e.target.files[0])
+            console.log(formData) //exibindo no console o objeto formdata
+
+            //Por fim chamamos a função ajax
+            ajaxUpload({
+                metodo:'POST', //METODO
+                url: '/upload', //URL
+                formData: formData, //objeto formdata
+                progresso(dados){ //funcao callback com o progresso
+                    const progresso = document.querySelector('.progresso') //selecionando a div
+                    //convertendo o valor javascript para um json e inserindo na div o valor
+                    progresso.innerHTML = JSON.stringify(dados.percentual) 
+                }
+            })
+        }
+    </script>
+</body>

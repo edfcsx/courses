@@ -1,0 +1,46 @@
+<!--
+
+    Observações aula;
+
+    1 - Os itens ficam lado a lado ao se utilizar display: flex devido que a propriedade flex direction tem o valor row que dispoe os elementos
+    lado a lado no main axis
+
+    flex direcion -> 
+                        row => dispoe os elementos lado a lado no main axis
+                        row-reverse => inverte a linha e a sua posição
+                        column => inverte o main axis com o cross axis, tornado a vertical o fluxo princial
+                        column-reverse => inverte o cross starter e o cross end
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Section 2 - aula 8</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media(min-width: 56.25em){ /*900px*/
+        .container{
+            flex-direction: row;
+        }
+    }
+
+</style>
+<body>
+        
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>

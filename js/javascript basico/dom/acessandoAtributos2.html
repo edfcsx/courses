@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritorio' data-urgencia="5" data-blabla ="opa">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        // ...
+        const lista = document.querySelector('div ul[destino="escritorio"]')
+        console.log('Elemento UL.....')
+        console.log(lista.childNodes)
+        console.log('destino', lista.destino) //como destino é uma propriedade personalizada ele não irá conseguir acessar dessa forma
+        console.log('GetAttribute', lista.getAttribute('destino')) //dessa forma é possivel
+        console.log('hasAtribute', lista.hasAttribute('destino'))
+        lista.setAttribute('destino','empresa') //esse metodo pode editar ou atribuir novos atributos
+        lista.setAttribute('status', 'aberto')
+        lista.removeAttribute('destino') //removendo atributo
+
+        //Os atributos personalizados que possuem o prefixo data-... são tratados de forma diferente
+        console.log(lista.dataset)
+        console.log(lista.dataset.urgencia)
+        lista.dataset.urgencia = 4
+        console.log(lista.getAttribute('data-urgencia'))
+
+        //cuidado
+        const label = document.querySelector('label')
+        console.log(label.for) //como o atributo for é uma palavra reservada do html não é possivel acessar dessa forma
+        console.log(label.htmlFor) //assim é possivel acessar Ou
+        console.log(label.getAttribute('for'))
+    </script>
+</body>
+
+</html>

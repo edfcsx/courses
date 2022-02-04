@@ -1,0 +1,16 @@
+{
+  "name": "css-grid",
+  "version": "1.0.0",
+  "description": "<br />",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass src/ -o src/",
+    "sass:watch": "node-sass src/ -o src/ -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}

@@ -1,0 +1,60 @@
+<!-- Observações aula; 
+    Layout santo graal
+    1) header , 3 colunas , footer
+    2) colunas de tamanho igual
+    3) rodapé fixo
+    4) Contéudo primeiro no html
+    5) Marcação minima
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Section 3 - aula 24 Santo Graal</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <style>
+    
+   body.container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content{
+      display: flex;
+      flex: 1;
+    }
+
+    .main{
+      flex: 1;
+    }
+    
+    .sidebar{
+      order: -1;
+    }
+
+    .sidebar , .ads {
+      flex-basis: 100px;
+    }
+
+    
+
+  </style>
+   <body class="container">
+
+    <header class="header">Header</header>
+    
+    <div class="content container">
+      <main class="main">Content</main>
+      <aside class="sidebar">SIDEBAR</aside>
+      <aside class="ads">ADS</aside>
+    </div>
+
+    <footer>Footer</footer>
+    
+  </body>
+</html>

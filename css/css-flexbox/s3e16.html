@@ -1,0 +1,52 @@
+<!--
+
+    Observações aula;
+
+    1 align-self serve para alinhar flex items na cross axis parecido com o align item mas especificando o flex item para
+    ser contemplado
+       
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Section 3 - aula 16</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head> 
+<style>
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        border: solid 5px #fff;
+        height: 350px;
+        width: 500px;
+
+    }
+
+    .container div:nth-child(1){
+        align-self: flex-start;
+    }
+
+    .container div:nth-child(2){
+        align-self: center;
+    }
+
+    .container div:nth-child(3){
+        align-self: flex-end;
+    }
+
+</style>
+<body>
+        
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>

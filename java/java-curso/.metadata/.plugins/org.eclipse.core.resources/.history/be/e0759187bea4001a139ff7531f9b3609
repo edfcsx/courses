@@ -1,0 +1,27 @@
+package fundamentals;
+
+import java.util.Scanner;
+
+public class EntryData {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String name;
+		int age;
+		
+		System.out.print("Qual seu nome? ");
+		name = sc.next();
+		sc.close();
+		
+		System.out.print("\nQual sua idade? ");
+		age = sc.nextInt();
+		sc.close();
+		
+		
+		System.out.printf("\n%s tem %d de idade", name, age);
+		
+		
+	}
+
+}

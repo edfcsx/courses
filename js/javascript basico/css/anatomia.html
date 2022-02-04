@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        .selector{
+            color: #222;
+            font-size: 30px;
+            text-align: center;
+            /* multiplos valores */
+            border: solid 3px goldenrod;
+            font-family: helvetica, monospace; /* caso a fonte helvetica não seja encontrada ele ira carregar a monospace */
+            /* funçoes */
+            width: calc(100% - 30px); /*Ele irar pegar o tamanho atual e diminuir a quantidade de pixels informada */ 
+            background-color: rgb(10, 150, 150)
+        }
+
+        /* Usando uma pseudo classe */
+        .selector:hover{
+            background-color: orangered;
+        }
+
+        /*Usando um pseudo elemento*/
+        .selector::first-letter{ /*Pega a primeira letra*/
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        /*
+        padrão de nomeclatura ? 
+        dash-case ou camelCase ?
+        */
+    </style>
+</head>
+
+<body>
+    <div class="selector">Conteúdo</div>
+</body>
+
+</html>

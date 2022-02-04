@@ -1,0 +1,42 @@
+<!--
+
+    Observações aula;
+
+    1 - Justify-content 
+        serve para controlar o alinhamento de flex items no main axis
+        tem o valor default como flex-start que faz com que os elementos sejam dispostos no inicio do main axis
+        flex-end => faz com que os elementos sejam dispostos ao fim do main axis
+        center => dispoe os elementos no centro3
+        space-around => faz com que todos os itens tenham o mesmo espaçamento a direita e a esquerda , distribui o espaço entre todos 
+        os flex itens
+        space-between(espaço entre) => nesse caso os espaços são distribuidos igualmente mas os itens do inicio e do fim não recebem sua cota
+        mas o primeiro item não possui espaçamento no inicio e o ultimo item não possui espaçamento ao fim
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Section 2 - aula 11</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+</style>
+<body>
+        
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!--
+
+    Observações aula;
+
+    1 Flex-Basis
+        Flex-basis serve para especificar qual o tamanho inicial de um flex item antes de um eventual espaço livre ou faltante do 
+        container ser distribuido e dividido
+
+        usar o flex-basis é a maneira correta para se definir o tamanho de items no flex-box
+
+        o valor default de flex-basis é auto onde o tamanho e definido pelo conteudo do item levando também em conta o tamanho do seu padding
+
+        flex-basis serve tanto para largura quanto para altura , dependendo do valor da flex-direction
+        row => altera o eixo X main axis
+        column => altera o eixo Y cross axis
+
+    2 - Flex
+
+        A propriedade flex junta os 3 atributos
+            *flex-grow
+            *flex-shrink
+            *flex-basis 
+
+            ex : flex : 1 1 100px; significa que os itens irão crescer em 1 , diminuir em 1 e ter um tamanho de 100px;
+        
+        
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Section 3 - aula 21</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head> 
+<style>
+    .container{
+        height: 100vh;
+        flex-basis: 100vh;
+        display: flex;
+    }
+
+    .box{
+        flex-basis: 200px;
+        height: 500px;
+        display: flex;
+    }
+
+    .box--lvl2{
+        flex-basis: 100px;
+        height: 100px;
+        background-color: purple;
+        display: block;
+    }
+
+    .flex-total-centered{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+</style>
+<body>
+        
+    <div class="container">
+        <div class="box flex-total-centered">
+                <div class="box--lvl2">
+
+                </div>
+        </div>
+    </div>
+</body>
+</html>

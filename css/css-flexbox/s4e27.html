@@ -1,0 +1,52 @@
+<!--
+  Observações aula;
+    Accordion
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>Section 3 - aula 27 Accordion</title>
+  </head>
+  <style>
+    .container{
+      display: flex;
+      height: 100vh;
+    }
+
+    .accordion{
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    body{
+      margin: 0;
+      padding: 0;
+    }
+
+    .accordion:hover{
+      flex-basis: 65vw;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="accordion" style="background-image: url(https://images.pexels.com/photos/283196/pexels-photo-283196.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)"></div>
+      <div class="accordion" style="background-image: url(https://images.pexels.com/photos/692064/pexels-photo-692064.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)"></div>
+      <div class="accordion" style="background-image: url(https://images.pexels.com/photos/97904/pexels-photo-97904.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)"></div>
+      <div class="accordion" style="background-image: url(https://images.pexels.com/photos/681405/pexels-photo-681405.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)"></div>
+      <div class="accordion" style="background-image: url(https://images.pexels.com/photos/724712/pexels-photo-724712.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)"></div>
+      <div class="accordion" style="background-image: url(https://images.pexels.com/photos/192774/pexels-photo-192774.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)"></div>
+      <div class="accordion" style="background-image: url(https://images.pexels.com/photos/681335/pexels-photo-681335.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)"></div>
+      <div class="accordion" style="background-image: url(https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)"></div>
+  </div>
+  </body>
+</html>

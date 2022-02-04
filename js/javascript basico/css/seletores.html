@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+
+        /*Seletores
+
+            * O seletor * significa que o estilo sera aplicado em todos os elementos
+            
+            *.tag , significa que ele ira selecionar todos os elementos com a classe tag
+            
+            * #aprovados, o hashtag é um seletor de id
+            
+            * #aninhado > div , significa que ele ira pegar a div dentro do elemento com id aninhado, isso serve para aplicar estilos aos filhos de um elemento
+            
+            * #aninhado section , significa que ele ira pegar o componente section dentro de aninhado mesmo que ele não seja descendente direto
+            ex : div#aninhado > div > section
+            caso fosse #aninhado > section ele não funcionaria pois esse elemento é usado para descendentes diretos
+
+            * p + ul, é um seletor assimbling que significa caso exista apos a tag p um elemento ul aplique o estilo ao elemento ul, esse estilo só funciona
+            para elementos adjacentes
+
+            *p ~ ol , é um seletor general simblings caso eles possuam um mesmo pai e exista uma tag pai ele ira selecionar a tag ol
+
+            * [feira], é um seletor de atributos ira selecionar tudo aquilo que tiver o atributo definido, é possivel também selecionar através do valor do atributo
+            [feira=casa]
+            [feira~=escritorio] esse seletor ira pegar o atributo que contenha dentro do valor a palavra escritorio caso existam mais palavras separadas por espaço
+            ele irá procurar se apenas contem o valor
+            [feira*=sa] ele ira percorrer o texto e caso no valor exista esses dois caracteres ele ira selecionar o elemento
+
+            *span:nth-child(1) significa que ira selecionar o primeiro elemento filho de um span
+
+            * section > :nth-child(odd) , ira selecionar todos os filhos dentro de uma section que sejam impares
+            odd para impares e even para pares,
+            section > :nth-child(even), ul , p ....... com a virgula é possivel aplicar o mesmo estilo a outras tags,
+            caso seja colocado com espaço section > :nth-child(even) label , ele ira selecionar apenas o elemento label
+
+            *section > span:nth-of-type(2) , ele ira selecionar todos os elementos filhos de section que possuam o tipo span , o 2 significa que o elemento desejado é o 2
+            elemento
+        */
+
+        section > span:nth-of-type(2){
+            color: #ff0;
+            background-color: #f77;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag nolabel'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

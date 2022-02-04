@@ -1,0 +1,25 @@
+use blog
+
+db.users.insertMany([
+  {
+    name: "Eduardo",
+    age: 25,
+    email: "edfcsx@gmail.com"
+  },
+  {
+    name: "Felipe",
+    age: 26,
+    email: "edfcsx2@gmail.com"
+  }
+])
+
+db.posts.insertOne({
+  title: "My first post",
+  text: "this is my first post",
+  tags: ["new", "tech"],
+  creator: ObjectId("5e0117814d010fd8743f8ce1"),
+  comments: [{
+    text: "I like this post",
+    author: ObjectId("5e0117814d010fd8743f8ce2"),
+  }]
+})

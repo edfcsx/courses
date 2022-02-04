@@ -1,0 +1,59 @@
+<!--
+
+    Observações aula;
+
+    1 Flex-grow
+        Define como um flex item se comporta caso haja espaço disponivel no container
+        tendo seu valor padrão como 0, caso o valor seja 1 significa que vc deseja que se calcula o css faltante e seja aumentado o tamanho
+        igualmente de cada flex-item
+
+        Calculo:
+
+        O flex grow e calculado da seguinte forma vamos supor que existam 400px livres 
+        o primeiro elemento possui flex-grow igual a 5 , enquanto o segundo elemento possui flex-grow igual a 1
+        então temos 6 cotas ficaria 400/6 = 66px por cota 
+
+        vamos dizer que cada elemento possua 100px de tamanho
+
+        O elemento 1 ficaria com = 100px + 66px * 5 cotas = 430px
+        O elemento 2 ficaria com = 100px + 66px * 1 cota = 166px;
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Section 3 - aula 17</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head> 
+<style>
+    .container{
+        display: flex;
+        border: solid 5px white;
+        width: 800px;
+    }
+
+    .container div{
+        margin: 0;
+        padding: 20px 0;
+        width: 100px;
+        flex-grow: 1;
+    }
+
+    .container div:nth-child(2){
+        flex-grow: 2;
+    }
+
+</style>
+<body>
+        
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>
